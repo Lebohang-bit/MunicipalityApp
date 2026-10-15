@@ -22,11 +22,8 @@ namespace MunicipalityApp
 
         private void DisableFutureFeatures()
         {
-            btnLocalEvents.Enabled = false;
             btnServiceStatus.Enabled = false;
-            btnLocalEvents.BackColor = Color.LightGray;
             btnServiceStatus.BackColor = Color.LightGray;
-            lblComingSoon1.Visible = true;
             lblComingSoon2.Visible = true;
         }
 
@@ -34,6 +31,13 @@ namespace MunicipalityApp
         {
             ReportIssuesForm reportForm = new ReportIssuesForm();
             reportForm.Show();
+            this.Hide();
+        }
+
+        private void btnLocalEvents_Click(object sender, EventArgs e)
+        {
+            LocalEventsForm eventsForm = new LocalEventsForm();
+            eventsForm.Show();
             this.Hide();
         }
 
@@ -53,7 +57,6 @@ namespace MunicipalityApp
             this.lblComingSoon2 = new Label();
             this.SuspendLayout();
 
-            // lblTitle
             this.lblTitle.Text = "MUNICIPAL SERVICES";
             this.lblTitle.Font = new Font("Times New Roman", 24, FontStyle.Bold);
             this.lblTitle.ForeColor = Color.FromArgb(10, 25, 47);
@@ -61,7 +64,6 @@ namespace MunicipalityApp
             this.lblTitle.Size = new Size(400, 50);
             this.lblTitle.TextAlign = ContentAlignment.MiddleCenter;
 
-            // btnReportIssues
             this.btnReportIssues.Text = "1. Report Issues";
             this.btnReportIssues.Size = new Size(250, 50);
             this.btnReportIssues.Location = new Point(195, 120);
@@ -71,17 +73,16 @@ namespace MunicipalityApp
             this.btnReportIssues.Font = new Font("Times New Roman", 14);
             this.btnReportIssues.Click += new EventHandler(this.btnReportIssues_Click);
 
-            // btnLocalEvents
-            this.btnLocalEvents.Text = "2. Local Events (Coming Soon)";
+            this.btnLocalEvents.Text = "2. Local Events";
             this.btnLocalEvents.Size = new Size(250, 50);
             this.btnLocalEvents.Location = new Point(195, 190);
-            this.btnLocalEvents.BackColor = Color.LightGray;
-            this.btnLocalEvents.ForeColor = Color.DarkGray;
+            this.btnLocalEvents.BackColor = Color.FromArgb(10, 25, 47);
+            this.btnLocalEvents.ForeColor = Color.White;
             this.btnLocalEvents.FlatStyle = FlatStyle.Flat;
-            this.btnLocalEvents.Font = new Font("Times New Roman", 12);
-            this.btnLocalEvents.Enabled = false;
+            this.btnLocalEvents.Font = new Font("Times New Roman", 14);
+            this.btnLocalEvents.Enabled = true;
+            this.btnLocalEvents.Click += new EventHandler(this.btnLocalEvents_Click);
 
-            // btnServiceStatus
             this.btnServiceStatus.Text = "3. Service Status (Coming Soon)";
             this.btnServiceStatus.Size = new Size(250, 50);
             this.btnServiceStatus.Location = new Point(195, 260);
@@ -91,7 +92,6 @@ namespace MunicipalityApp
             this.btnServiceStatus.Font = new Font("Times New Roman", 12);
             this.btnServiceStatus.Enabled = false;
 
-            // btnExit
             this.btnExit.Text = "Exit";
             this.btnExit.Size = new Size(100, 35);
             this.btnExit.Location = new Point(270, 350);
@@ -101,21 +101,16 @@ namespace MunicipalityApp
             this.btnExit.Font = new Font("Times New Roman", 12);
             this.btnExit.Click += new EventHandler(this.btnExit_Click);
 
-            // lblComingSoon1
-            this.lblComingSoon1.Text = "🔒 Disabled";
+            this.lblComingSoon1.Text = "";
             this.lblComingSoon1.Location = new Point(460, 200);
             this.lblComingSoon1.Size = new Size(80, 25);
-            this.lblComingSoon1.ForeColor = Color.Red;
-            this.lblComingSoon1.Font = new Font("Arial", 9, FontStyle.Italic);
 
-            // lblComingSoon2
             this.lblComingSoon2.Text = "🔒 Disabled";
             this.lblComingSoon2.Location = new Point(460, 270);
             this.lblComingSoon2.Size = new Size(80, 25);
             this.lblComingSoon2.ForeColor = Color.Red;
             this.lblComingSoon2.Font = new Font("Arial", 9, FontStyle.Italic);
 
-            // MainMenuForm
             this.Text = "Municipal Services - Main Menu";
             this.Size = new Size(600, 450);
             this.StartPosition = FormStartPosition.CenterScreen;

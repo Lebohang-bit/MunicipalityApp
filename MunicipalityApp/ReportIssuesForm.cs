@@ -8,7 +8,7 @@ namespace MunicipalityApp
 {
     public partial class ReportIssuesForm : Form
     {
-        // Data structure to store issues - using List
+ 
         private List<IssueReport> issueList = new List<IssueReport>();
         private string attachedFilePath = "";
         private int progressValue = 0;
@@ -122,12 +122,12 @@ namespace MunicipalityApp
                 return;
             }
 
-            // Complete progress
+           
             progressValue = 100;
             progressBar1.Value = 100;
             UpdateEncouragementMessage(5);
 
-            // Create and store report using IssueReport data structure
+            
             IssueReport report = new IssueReport
             {
                 ReportID = Guid.NewGuid().ToString().Substring(0, 8).ToUpper(),
@@ -141,16 +141,16 @@ namespace MunicipalityApp
 
             issueList.Add(report);
 
-            // Show success message with feedback
+           
             MessageBox.Show($"✅ Issue reported successfully!\n\nReport ID: {report.ReportID}\nThank you for helping your community!",
                 "Submission Successful",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
-            // Reset form
+            
             ResetForm();
 
-            // Display all reports for demonstration
+            
             DisplayAllReports();
         }
 
@@ -191,7 +191,7 @@ namespace MunicipalityApp
             this.Close();
         }
 
-        // Track progress as user fills fields
+        
         private void txtLocation_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtLocation.Text) && progressValue < 20)
