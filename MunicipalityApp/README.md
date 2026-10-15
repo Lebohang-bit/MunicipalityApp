@@ -63,7 +63,7 @@ The application is built on the .NET Framework 4.7.2 and uses a navy and white c
 - Workload: ".NET desktop development"
 - Framework: .NET Framework 4.7.2 or later
 - No external dependencies or NuGet packages required
-
+git add .
 
 ## 4. How to Compile
 
